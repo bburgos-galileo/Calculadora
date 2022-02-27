@@ -1,0 +1,39 @@
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    text-align: center;
+}
+
+#resultado{
+    text-align: right;
+    border: 2px solid #000fff;
+    border-radius: 10%;
+    margin: 3px;
+    padding: 3px;
+}
+
+#numeroActual{
+    text-align: right;
+    border: 2px solid #ff4800;
+    border-radius: 10%;
+    margin: 3px;
+    padding: 3px;
+}
+
+.botonCalc{
+    font-size: large;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color: whitesmoke;
+    background-color: lightblue;
+}
+
+.botonOpt{
+    font-size: large;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color: whitesmoke;
+    background-color: lightgreen;  
+}

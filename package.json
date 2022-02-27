@@ -1,0 +1,16 @@
+{
+  "name": "calculadora",
+  "version": "1.0.0",
+  "description": "Proyecto Calculadora",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "Byron Burgos",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^17.1.0",
+    "mousetrap": "^1.6.5"
+  }
+}
