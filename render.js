@@ -10,13 +10,16 @@ var botonSiete = document.getElementById('boton7');
 var botonOcho = document.getElementById('boton8');
 var botonNueve = document.getElementById('boton9');
 var botonCero = document.getElementById('boton0');
-var actual =  document.getElementById('numeroActual');
-var resultado =  document.getElementById('resultado');
+var actual = document.getElementById('numeroActual');
+var resultado = document.getElementById('resultado');
 var botonSuma = document.getElementById("botonSuma");
 var botonSuma = document.getElementById("botonSuma");
 var botonResta = document.getElementById("botonResta");
 var botonMulti = document.getElementById("botonMulti");
 var botonDiv = document.getElementById("botonDivision");
+var listaHistoria = document.getElementById("lista");
+var botonLimpiar = document.getElementById("botonLimpiar");
+var botonBorrar = document.getElementById("botonSupr");
 
 botonUno.addEventListener('click', clickUno);
 botonDos.addEventListener('click', clickDos);
@@ -33,6 +36,8 @@ botonSuma.addEventListener('click', clickSuma);
 botonResta.addEventListener('click', clickResta);
 botonMulti.addEventListener('click', clickMulti);
 botonDiv.addEventListener('click', clickDiv);
+botonLimpiar.addEventListener('click', clickBotonLimpiar);
+botonBorrar.addEventListener('click', clickBotonSupr);
 
 MouseTrap.bind('1', clickUno);
 MouseTrap.bind('2', clickDos);
@@ -50,77 +55,106 @@ MouseTrap.bind('-', clickResta);
 MouseTrap.bind('*', clickMulti);
 MouseTrap.bind('/', clickDiv);
 
-function clickUno(){
+function clickUno() {
     actual.innerHTML += '1';
 }
 
-function clickDos(){
+function clickDos() {
     actual.innerHTML += '2';
 }
 
-function clickTres(){
+function clickTres() {
     actual.innerHTML += '3';
 }
 
-function clickCuatro(){
+function clickCuatro() {
     actual.innerHTML += '4';
 }
 
-function clickCinco(){
+function clickCinco() {
     actual.innerHTML += '5';
 }
 
-function clickSeis(){
+function clickSeis() {
     actual.innerHTML += '6';
 }
 
-function clickSiete(){
+function clickSiete() {
     actual.innerHTML += '7';
 }
 
-function clickOcho(){
+function clickOcho() {
     actual.innerHTML += '8';
 }
 
-function clickNueve(){
+function clickNueve() {
     actual.innerHTML += '9';
 }
 
-function clickCero(){
+function clickCero() {
     actual.innerHTML += '0';
 }
 
-function clickSuma(){
+function clickSuma() {
     let valorActual = parseInt(actual.innerHTML);
     let valorResultado = parseInt(resultado.innerHTML);
     resultado.innerHTML = valorActual + valorResultado;
     actual.innerHTML = '0';
 }
 
-function clickSuma(){
+function clickSuma() {
     let valorActual = parseInt(actual.innerHTML);
     let valorResultado = parseInt(resultado.innerHTML);
-    resultado.innerHTML = valorActual + valorResultado;
+    let valor = valorActual + valorResultado;
+    resultado.innerHTML = valor;
+    strValor = valorActual + "+" + valorResultado;
+    agregaHistorial(strValor);
     actual.innerHTML = '0';
 }
 
-function clickResta(){
+function clickResta() {
     let valorActual = parseInt(actual.innerHTML);
     let valorResultado = parseInt(resultado.innerHTML);
-    resultado.innerHTML =  valorResultado - valorActual;
+    let valor = valorResultado - valorActual;
+    resultado.innerHTML = valor;
+    strValor = valorResultado + "-" + valorActual;
+    agregaHistorial(strValor);
     actual.innerHTML = '0';
 }
 
-function clickMulti(){
+function clickMulti() {
     let valorActual = parseInt(actual.innerHTML);
     let valorResultado = parseInt(resultado.innerHTML);
-    resultado.innerHTML = valorActual * valorResultado;
+    let valor = valorActual * valorResultado;
+    resultado.innerHTML = valor;
+    strValor = valorActual + "*" + valorResultado;
+    agregaHistorial(strValor);    
     actual.innerHTML = '0';
 }
 
-function clickDiv(){
+function clickDiv() {
     let valorActual = parseInt(actual.innerHTML);
     let valorResultado = parseInt(resultado.innerHTML);
-    resultado.innerHTML = valorResultado / valorActual;
+    let valor = valorResultado / valorActual;
+    resultado.innerHTML = valor;
+    strValor = valorResultado + "/" + valorActual;
+    agregaHistorial(strValor);
     actual.innerHTML = '0';
+}
+
+function agregaHistorial(valor) {
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode(valor));
+    listaHistoria.appendChild(li);
+}
+
+function clickBotonLimpiar() {
+    actual.innerHTML = "0";
+}
+
+function clickBotonSupr() {
+    var text = actual.innerHTML;
+    var editedText = text.slice(0, -1);
+    actual.innerHTML = "";
+    actual.innerHTML = editedText;
 }
